@@ -7,6 +7,7 @@
 #include "core/calc.h"
 #include "empire/city.h"
 #include "game/cheats.h"
+#include "scenario/property.h"
 
 #include <string.h>
 
@@ -132,6 +133,9 @@ resource_type building_distribution_fetch(const building *b, const resource_stor
         min_stock = 1;
     }
     for (resource_type r = RESOURCE_MIN; r < RESOURCE_MAX; r++) {
+        if (r == RESOURCE_WHEAT && scenario_property_rome_supplies_wheat()) {
+            continue; // skip wheat if rome supplies it
+        }
         if (info[r].needed && info[r].building_id && b->resources[r] < min_stock) {
             if (pick_first) {
                 return r;
