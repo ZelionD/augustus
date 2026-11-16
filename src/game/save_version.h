@@ -46,7 +46,7 @@ If you are unsure about anything regarding the savegame versioning, please ask o
 **********************************************************************************************************************/
 
 typedef enum {
-    SAVE_GAME_CURRENT_VERSION = 0xc1,
+    SAVE_GAME_CURRENT_VERSION = 0xc2,
 
     SAVE_GAME_LAST_ORIGINAL_LIMITS_VERSION = 0x66,
     SAVE_GAME_LAST_SMALLER_IMAGE_ID_VERSION = 0x76,
